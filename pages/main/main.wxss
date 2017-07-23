@@ -1,0 +1,48 @@
+/* main.wxss */
+.row-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.column-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+
+.header {
+  width: 130rpx;
+  height: 40rpx;
+  background-color: #888888;
+  border-width: 0.8px;
+  border-color: black;
+  border-style: solid;
+  text-align: center;
+}
+
+.header-left {
+  width: 130rpx;
+  height: 40rpx;
+  background-color: #888888;
+  border-width: 0.8px;
+  border-color: black;
+  border-style: solid;
+  text-align: center;
+}
+
+.cell {
+  width: 130rpx;
+  height: 40rpx;
+  border-width: 0.8px;
+  border-color: black;
+  border-style: solid;
+  text-align: center;
+}
+
+.swiper {
+  width: 100%;
+  height: 1200rpx;
+}

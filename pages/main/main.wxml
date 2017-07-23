@@ -1,0 +1,37 @@
+<!--main.wxml-->
+
+<swiper indicator-dots="{{true}}" class="swiper" bindchange="onSwiperChanged">
+    <swiper-item>
+      <view class="column-wrapper">
+          <view class="header-left"></view>
+          <view wx:for="{{rates}}" wx:for-index="i" class="header">
+            {{item * 100}}%
+          </view>
+        </view>
+
+        <view wx:for="{{cells}}" wx:for-index="i" class="column-wrapper">
+          <view class="header-left">{{i}}</view>
+          <view wx:for="{{item}}" wx:for-index="j">
+            <view class="cell">{{item}}</view>
+          </view>
+        </view>
+
+    </swiper-item>
+    <swiper-item>
+      <view class="column-wrapper">
+          <view class="header-left"></view>
+          <view wx:for="{{rates}}" wx:for-index="i" class="header">
+            {{item * 100}}%
+          </view>
+        </view>
+
+        <view wx:for="{{cells}}" wx:for-index="i" class="column-wrapper">
+          <view class="header-left">{{i}}</view>
+          <view wx:for="{{item}}" wx:for-index="j">
+            <view class="cell">{{item}}</view>
+          </view>
+        </view>
+    </swiper-item>
+</swiper>
+
+

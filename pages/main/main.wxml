@@ -1,37 +1,41 @@
 <!--main.wxml-->
 
-<swiper indicator-dots="{{true}}" class="swiper" bindchange="onSwiperChanged">
-    <swiper-item>
+<view class="tab-wrapper">
+  <view class="{{leftTabClass}}" bindtap="onClickLeftTab">长期的力量</view>
+  <view class="{{rightTabClass}}" bindtap="onClickRightTab">长期+策略的力量</view>
+</view>
+
+<view>
+  <scroll-view scroll-x style="width: 900rpx">
+    <view class="row-wrapper" hidden="{{table1Hidden}}">
       <view class="column-wrapper">
-          <view class="header-left"></view>
-          <view wx:for="{{rates}}" wx:for-index="i" class="header">
-            {{item * 100}}%
-          </view>
+        <view class="header-left"></view>
+        <view wx:for="{{rates}}" wx:for-index="i" wx:key="key" class="header" wx:key="key" >
+          {{item * 100}}%
         </view>
+      </view>
 
-        <view wx:for="{{cells}}" wx:for-index="i" class="column-wrapper">
-          <view class="header-left">{{i}}</view>
-          <view wx:for="{{item}}" wx:for-index="j">
-            <view class="cell">{{item}}</view>
-          </view>
+      <view wx:for="{{calculate1Cells}}" wx:for-index="i" class="column-wrapper" wx:key="key" >
+        <view class="header-left">{{i}}</view>
+        <view wx:for="{{item}}" wx:for-index="j" wx:key="key" >
+          <view class="cell">{{item}}</view>
         </view>
-
-    </swiper-item>
-    <swiper-item>
+      </view>
+    </view>
+    <view class="row-wrapper" hidden="{{table2Hidden}}">
       <view class="column-wrapper">
-          <view class="header-left"></view>
-          <view wx:for="{{rates}}" wx:for-index="i" class="header">
-            {{item * 100}}%
-          </view>
+        <view class="header-left"></view>
+        <view wx:for="{{rates}}" wx:for-index="i" class="header" wx:key="key" >
+          {{item * 100}}%
         </view>
+      </view>
 
-        <view wx:for="{{cells}}" wx:for-index="i" class="column-wrapper">
-          <view class="header-left">{{i}}</view>
-          <view wx:for="{{item}}" wx:for-index="j">
-            <view class="cell">{{item}}</view>
-          </view>
+      <view wx:for="{{calculate2Cells}}" wx:for-index="i" class="column-wrapper" wx:key="key" >
+        <view class="header-left">{{i}}({{i+1}})</view>
+        <view wx:for="{{item}}" wx:for-index="j" wx:key="key" >
+          <view class="cell">{{item}}</view>
         </view>
-    </swiper-item>
-</swiper>
-
-
+      </view>
+    </view>
+  </scroll-view>
+</view>

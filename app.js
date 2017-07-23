@@ -4,7 +4,6 @@ App({
     var that = this
     wx.getSystemInfo({
       success: function (res) {
-        console.info(res.windowWidth + "," + res.windowHeight);
         that.globalData.windowHeight = res.screenHeight
         that.globalData.windowWidth = res.screenWidth
       }

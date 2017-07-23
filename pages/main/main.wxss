@@ -1,5 +1,6 @@
 /* main.wxss */
-.row-wrapper {
+
+.row-wrapper, .column-wrapper {
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -7,42 +8,48 @@
 }
 
 .column-wrapper {
+  flex-direction: row;
+}
+
+.tab-wrapper {
   display: flex;
   width: 100%;
   flex-direction: row;
   box-sizing: border-box;
+  align-content: center;
+  margin-bottom: 10px;
 }
 
-.header {
+.tab-default, .tab-disselected {
+  width: 50%;
+  height: 80rpx;
+  line-height: 80rpx;
+  box-sizing: border-box;
+  text-align: center;
+  border-width: 0.4px;
+  border-color: black;
+  border-style: solid;
+  background-color: #09bb07;
+  color: #fff;
+  font-size: 13pt;
+}
+
+.tab-disselected {
+  background-color: #09bb07;
+  opacity: 0.2;
+}
+
+.header, .header-left, .cell {
   width: 130rpx;
   height: 40rpx;
-  background-color: #888888;
-  border-width: 0.8px;
+  line-height: 40rpx;
+  border-width: 0.5px;
   border-color: black;
   border-style: solid;
   text-align: center;
+  font-size: 13pt;
 }
 
-.header-left {
-  width: 130rpx;
-  height: 40rpx;
-  background-color: #888888;
-  border-width: 0.8px;
-  border-color: black;
-  border-style: solid;
-  text-align: center;
-}
-
-.cell {
-  width: 130rpx;
-  height: 40rpx;
-  border-width: 0.8px;
-  border-color: black;
-  border-style: solid;
-  text-align: center;
-}
-
-.swiper {
-  width: 100%;
-  height: 1200rpx;
+.header, .header-left {
+  background-color: #888;
 }

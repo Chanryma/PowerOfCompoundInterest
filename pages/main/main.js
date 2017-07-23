@@ -1,5 +1,4 @@
 // main.js
-var app = getApp()
 
 Page({
 
@@ -10,10 +9,13 @@ Page({
     rates: [0.10, 0.15, 0.20, 0.30, 0.35],
     years: 20,
     cellWidth: 120,
-    cells:[],
-    calculate1Cells:[],
+    calculate1Cells: [],
     calculate2Cells: [],
-    currentTab: 0
+    currentTab: 0,
+    leftTabClass: "tab-default",
+    rightTabClass: "tab-disselected",
+    table1Hidden: false,
+    table2Hidden: true
   },
 
   /**
@@ -25,16 +27,18 @@ Page({
     })
 
     var that = this
-    var cells = this.calculate1(this.data.years, this.data.rates)
+    var calculate1Cells = this.calculate1(this.data.years, this.data.rates)
+    var calculate2Cells = this.calculate2(this.data.years, this.data.rates)
     that.setData({
-      cells: cells
+      calculate1Cells: calculate1Cells,
+      calculate2Cells: calculate2Cells,
     })
   },
   // calculate1Cells
   calculate1: function (years, rates) {
     var realValues = []
     var displayValues = []
-    for (var y = 0; y <= years; y ++) {
+    for (var y = 0; y <= years; y++) {
       var column = [];
       var displayColumn = []
       for (var r = 0; r < rates.length; r++) {
@@ -80,19 +84,21 @@ Page({
     return displayValues
   },
 
-  onSwiperChanged: function (e) {
-    var that = this
-    that.setData({ currentTab: e.detail.current });
-    if (e.detail.current == 0) {
-      var cells = that.calculate1(that.data.years, that.data.rates)
-      that.setData({
-        cells: cells
-      })
-    } else if (e.detail.current == 1) {
-      var cells = that.calculate2(that.data.years, that.data.rates)
-      that.setData({
-        cells: cells
-      })
-    }
+  onClickLeftTab: function () {
+    this.setData({
+      leftTabClass: "tab-default",
+      rightTabClass: "tab-disselected",
+      table1Hidden: false,
+      table2Hidden: true
+    })
+  },
+
+  onClickRightTab: function () {
+    this.setData({
+      leftTabClass: "tab-disselected",
+      rightTabClass: "tab-default",
+      table1Hidden: true,
+      table2Hidden: false
+    })
   }
 })
